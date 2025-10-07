@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Project</title>
+    <link rel="stylesheet" href="/static/style.css"/>
+
 </head>
 <body>
+    <section>
+        <h1>Finaid Tracker</h1>
+        <form> 
+            <input/>
+            <button>Add</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Added Stocks</h2>
+        <table class ="table" aria-label="watchlist">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+        </table>
+    </section>
+
+    <script type="module" src="./client.js"></script>
     
 </body>
 </html>
