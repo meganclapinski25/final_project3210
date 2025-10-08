@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Project</title>
     <link rel="stylesheet" href="/static/style.css"/>
-    <script src="/socket.io/socket.io.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 </head>
 <body>
-    <section>
+<main class= "wrap">
+    <section class = "temp">
         <h1>Finaid Tracker</h1>
-        <form> 
-            <input/>
-            <button>Add</button>
+        <form id="add-form"> 
+            <input id="symbol-input"/>
+            <button type = "add-stock">Add</button>
         </form>
     </section>
 
-    <section>
+    <section class = "temp">
         <h2>Added Stocks</h2>
         <table class ="table" aria-label="watchlist">
             <thead>
@@ -29,11 +29,9 @@
             <tbody id="rows"></tbody>
         </table>
     </section>
-
+</main>  
+    <script src="/socket.io/socket.io.js"></script>
     <script type="module" src="./client.js"></script>
-    <script>
-        const socket = io();
-        socket.on("connect", () => console.log("client connected:", socket.id));
-      </script>
+    
 </body>
 </html>

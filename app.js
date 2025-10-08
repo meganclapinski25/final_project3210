@@ -1,13 +1,18 @@
-import express from "express";
-import { createServer } from "http";
-import { Server } from "socket.io";
-
+// app.js
+const express = require('express');
 const app = express();
-const server = createServer(app);
-const io = new Server(server)
+const http = require('http');
+const server = http.createServer(app);
+
+const socketio = require('socket.io');
+const path = require('path');
+// Socket.io
+const { Server } = require('socket.io');
+const io = new Server(server);
 
 app.use(express.static("static"));
 
+let onlineUsers = {};
 io.on("connection", (socket) =>{
     console.log("socket connected:", socket.id);
 });

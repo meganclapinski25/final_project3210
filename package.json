@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "^5.1.0",
+    "simpledotcss": "^2.3.7",
     "socket.io": "^4.8.1"
   }
 }
