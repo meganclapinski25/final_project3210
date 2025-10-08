@@ -1,20 +1,19 @@
-// app.js
-const express = require('express');
-const app = express();
-const http = require('http');
-const server = http.createServer(app);
+const express = require("express");
+const path = require("path");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
 
-const socketio = require('socket.io');
-const path = require('path');
-// Socket.io
-const { Server } = require('socket.io');
+const app = express();
+const server = createServer(app);
 const io = new Server(server);
 
-app.use(express.static("static"));
+// Serve ./static at /
+app.use(express.static(path.join(__dirname, "static")));
 
-let onlineUsers = {};
+
 io.on("connection", (socket) =>{
-    console.log("socket connected:", socket.id);
-});
+    socket.emit("state:init", {stats});
 
-server.listen(3000, () => console.log("http://localhost:3000"));
+
+    socket.on("stats:increment", (key))
+})
