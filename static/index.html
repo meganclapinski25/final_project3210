@@ -1,38 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Project</title>
-    <link rel="stylesheet" href="/static/style.css"/>
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <meta charset="utf-8" />
+  <title>Battleship</title>
+  <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-<main class= "wrap">
-    <section class = "temp">
-        <h1>Finaid Tracker</h1>
-        <form id="add-form"> 
-            <input id="symbol-input"/>
-            <button type = "add-stock">Add</button>
-        </form>
-    </section>
+  <div class="controls">
+    <input id="name" placeholder="Your name "/>
+    <button id="join">Find Match</button>
+    
+  </div>
 
-    <section class = "temp">
-        <h2>Added Stocks</h2>
-        <table class ="table" aria-label="watchlist">
-            <thead>
-                <tr>
-                    <th>Symbol</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody id="rows"></tbody>
-        </table>
-    </section>
-</main>  
-    <script src="/socket.io/socket.io.js"></script>
-    <script type="module" src="./client.js"></script>
-    
-    
+  <div id="info"></div>
+
+  <div class="boards">
+    <div>
+      <h3>Your Board</h3>
+      <div id="myBoard" class="board me"></div>
+    </div>
+    <div>
+      <h3>Opponent Board</h3>
+      <div id="theirBoard" class="board their"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
 </body>
 </html>
