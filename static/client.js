@@ -107,6 +107,18 @@ socket.on('fire-result', ({ shooter, row, col, result }) => {
   }
 });
 
-socket.on('game-over', ({ winner, reason }) => {
-  setStatus(`Game over! ${winner === myIndex ? 'You win!' : 'You lose.'}${reason ? ' ('+reason+')' : ''}`);
+socket.on('score', ({scores}) => {
+  console.log(`Scores: ${scores[0]} - ${scores[1]}`);
+  const scoreTemp = document.getElementById('score');
+  if (scoreTemp) scoreTemp.textContent = `Score ${scores[0]} - ${scores[1]}`;
+});
+
+
+socket.on('game-over', ({ winnerIndex, winnerName, loserName, finalScores }) => {
+  const youWon = (winnerIndex === myIndex);
+  alert(
+    youWon
+      ? `🎉 You win! Final score ${finalScores[0]} - ${finalScores[1]}`
+      : `💀 You lose. Winner: ${winnerName}. Final score ${finalScores[0]} - ${finalScores[1]}`
+  );
 });
